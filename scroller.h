@@ -1,5 +1,6 @@
 #include <QtWidgets/QtWidgets>
-#include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
+#include "scrollervolume.h"
 
 #ifndef _SCROLLER_H_
 #define _SCROLLER_H_
@@ -15,12 +16,17 @@ namespace scroller
     private:
         void initUi();
         void wheelEvent(QWheelEvent *e) override;
-        void setVoice(double percentage);
+        void setVoice(int volumn);
 
     private:
-        // struct UI
-        // {
-        // } ui_;
+        struct UI
+        {
+            QPushButton *volume_pbt;
+            QPushButton *light_pbt;
+            QPushButton *other_pbt;
+        } ui_;
+
+        ScrollerController::ScrollerVolume *scroller_colume_;
         double current_voice_;
     };
 }
