@@ -11,12 +11,12 @@ ScrollerVolume::ScrollerVolume()
 {
     try
     {
-        Init();
-        GetVolume();
+        init();
+        getVolume();
     }
     catch (std::string e)
     {
-        std::cout << "SystemVolume Init error: " << e << std::endl;
+        std::cout << "SystemVolume init error: " << e << std::endl;
     }
     catch (...)
     {
@@ -25,10 +25,10 @@ ScrollerVolume::ScrollerVolume()
 
 ScrollerVolume::~ScrollerVolume()
 {
-    Close();
+    close();
 }
 
-void ScrollerVolume::Init()
+void ScrollerVolume::init()
 {
     hr = CoInitialize(0);
     hr = CoCreateInstance(
@@ -54,7 +54,7 @@ void ScrollerVolume::Init()
     }
 }
 
-void ScrollerVolume::Close()
+void ScrollerVolume::close()
 {
     if (pAudioClient)
     {
@@ -75,7 +75,7 @@ void ScrollerVolume::Close()
     CoUninitialize();
 }
 
-void ScrollerVolume::SetVolume(int volume)
+void ScrollerVolume::setVolume(int volume)
 {
     if ((volume - 100.0f) > 0)
     {
@@ -94,7 +94,7 @@ void ScrollerVolume::SetVolume(int volume)
     }
 }
 
-int ScrollerVolume::GetVolume()
+int ScrollerVolume::getVolume()
 {
     float volume;
     hr = pAudioEndpointVolume->GetMasterVolumeLevelScalar(&volume);
@@ -105,20 +105,20 @@ int ScrollerVolume::GetVolume()
     return (int)round(volume * 100.0);
 }
 
-void ScrollerVolume::Mute()
+void ScrollerVolume::mute()
 {
     hr = pAudioEndpointVolume->SetMute(TRUE, NULL);
     if (FAILED(hr))
     {
-        throw "Mute() throw Exception";
+        throw "mute() throw Exception";
     }
 }
 
-void ScrollerVolume::UnMute()
+void ScrollerVolume::unMute()
 {
     hr = pAudioEndpointVolume->SetMute(FALSE, NULL);
     if (FAILED(hr))
     {
-        throw "UnMute() throw Exception";
+        throw "unMute() throw Exception";
     }
 }

@@ -15,14 +15,14 @@ namespace ScrollerController
         explicit ScrollerVolume();
         virtual ~ScrollerVolume();
 
-        void Mute();
-        void UnMute();
-        void SetVolume(int volume);
-        int GetVolume();
+        void mute();
+        void unMute();
+        void setVolume(int volume);
+        int getVolume();
 
     private:
-        void Init();
-        void Close();
+        void init();
+        void close();
 
     private:
         HRESULT hr;

@@ -6,6 +6,8 @@ set(PROJECT_SOURCES
                     scroller.h
                     scrollervolume.cpp
                     scrollervolume.h
+                    scrollercontrolregion.cpp
+                    scrollercontrolregion.h
     )
 
 project(Scroller VERSION 1.0.0 LANGUAGES CXX)
