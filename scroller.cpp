@@ -1,6 +1,5 @@
 #include "scroller.h"
 
-#include <QAudioOutput>
 #include <QHBoxLayout>
 
 using namespace scroller;

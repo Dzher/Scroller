@@ -20,6 +20,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-find_package(Qt5 COMPONENTS Core Gui Widgets multimedia REQUIRED)
+find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 add_executable(Scroller ${PROJECT_SOURCES})
-target_link_libraries(Scroller Qt5::Core Qt::Gui Qt::Widgets Qt::Multimedia)
+target_link_libraries(Scroller Qt5::Core Qt::Gui Qt::Widgets)
