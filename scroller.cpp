@@ -45,5 +45,17 @@ void Scroller::configController()
     {
         scroller_colume_->setVolume(volume);
     };
-    ui_.volume_rgn->setCallbackFunc(volumn_cb);
+    ScrCb mute_cb = [this](int mute)
+    {
+        if (mute > 0)
+        {
+            scroller_colume_->unMute();
+        }
+        else
+        {
+            scroller_colume_->mute();
+        }
+    };
+    ui_.volume_rgn->setWheelCb(volumn_cb);
+    ui_.volume_rgn->setRightCb(mute_cb);
 }

@@ -12,7 +12,8 @@ namespace scroller
     public:
         explicit ScrollerControlRegion(const QString &text, int original = 0, QWidget *parent = nullptr);
 
-        void setCallbackFunc(const ScrCb &cb);
+        void setWheelCb(const ScrCb &cb);
+        void setRightCb(const ScrCb &cb);
         void setCurrentValue(int value);
         int getCurrentValue();
 
@@ -21,11 +22,14 @@ namespace scroller
     private:
         void initUi();
         void wheelEvent(QWheelEvent *e) override;
+        bool event(QEvent *e) override;
 
     private:
         int current_value_ = 0;
+        bool mute_ = false;
         bool rotation_;
-        ScrCb cb_;
+        ScrCb wheel_cb_;
+        ScrCb right_cb_;
     };
 }
 

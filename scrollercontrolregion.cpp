@@ -24,8 +24,23 @@ void ScrollerControlRegion::wheelEvent(QWheelEvent *e)
         rotation_ = false;
         new_value = current_value_ + deltaY < 0 ? 0 : current_value_ + deltaY;
     }
-    cb_(new_value);
+    wheel_cb_(new_value);
     current_value_ = new_value;
+}
+
+bool ScrollerControlRegion::event(QEvent *e)
+{
+    if (e->type() == QEvent::MouseButtonPress)
+    {
+        QMouseEvent *mouse_e = static_cast<QMouseEvent *>(e);
+        if (mouse_e->button() == Qt::MouseButton::RightButton)
+        {
+            right_cb_(mute_);
+            mute_ = !mute_;
+            return QWidget::event(e);
+        }
+    }
+    return QWidget::event(e);
 }
 
 void ScrollerControlRegion::initUi()
@@ -47,7 +62,12 @@ void ScrollerControlRegion::setCurrentValue(int value)
     current_value_ = value;
 }
 
-void ScrollerControlRegion::setCallbackFunc(const ScrCb &cb)
+void ScrollerControlRegion::setWheelCb(const ScrCb &cb)
 {
-    cb_ = cb;
+    wheel_cb_ = cb;
+}
+
+void ScrollerControlRegion::setRightCb(const ScrCb &cb)
+{
+    right_cb_ = cb;
 }
