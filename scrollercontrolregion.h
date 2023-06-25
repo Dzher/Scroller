@@ -1,4 +1,4 @@
-#include <QtWidgets/QPushButton>
+#include <QtWidgets/QSlider>
 #include <functional>
 
 #ifndef _SCROLLERCONTROLREGION_H_
@@ -7,7 +7,7 @@
 namespace scroller
 {
     using ScrCb = std::function<void(int)>;
-    class ScrollerControlRegion : public QPushButton
+    class ScrollerControlRegion : public QSlider
     {
     public:
         explicit ScrollerControlRegion(const QString &text, int original = 0, QWidget *parent = nullptr);

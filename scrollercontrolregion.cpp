@@ -5,7 +5,7 @@
 
 using namespace scroller;
 
-ScrollerControlRegion::ScrollerControlRegion(const QString &text, int original, QWidget *parent) : QPushButton(parent), current_value_(original) {}
+ScrollerControlRegion::ScrollerControlRegion(const QString &text, int original, QWidget *parent) : QSlider(parent), current_value_(original) {}
 
 void ScrollerControlRegion::wheelEvent(QWheelEvent *e)
 {
@@ -26,6 +26,7 @@ void ScrollerControlRegion::wheelEvent(QWheelEvent *e)
     }
     wheel_cb_(new_value);
     current_value_ = new_value;
+    setValue(current_value_);
 }
 
 bool ScrollerControlRegion::event(QEvent *e)
@@ -45,6 +46,8 @@ bool ScrollerControlRegion::event(QEvent *e)
 
 void ScrollerControlRegion::initUi()
 {
+    setOrientation(Qt::Orientation::Vertical);
+    setTickPosition(QSlider::TicksLeft);
 }
 
 bool ScrollerControlRegion::getRotation()
