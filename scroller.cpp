@@ -12,9 +12,11 @@ Scroller::Scroller(QWidget *parent) : QWidget(parent), scroller_colume_(new Scro
 
 void Scroller::initUi()
 {
+
     resize(270, 80);
-    setWindowFlags(Qt::FramelessWindowHint);
     setAttribute(Qt::WA_StyledBackground);
+    setWindowFlags(Qt::FramelessWindowHint);
+    setWindowFlags(windowFlags() | Qt::CustomizeWindowHint | Qt::Tool | Qt::WindowStaysOnTopHint);
     // setAttribute(Qt::WA_TranslucentBackground);
 
     QHBoxLayout *main_h_lyt = new QHBoxLayout();

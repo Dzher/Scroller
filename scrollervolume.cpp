@@ -16,10 +16,12 @@ ScrollerVolume::ScrollerVolume()
     }
     catch (std::string e)
     {
-        std::cout << "SystemVolume init error: " << e << std::endl;
+        std::cout << "ScrollerVolume init error: " << e << std::endl;
     }
     catch (...)
     {
+        std::cout << "ScrollerVolume init error: "
+                  << "other Error" << std::endl;
     }
 }
 
