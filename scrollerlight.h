@@ -1,5 +1,3 @@
-#include <highlevelmonitorconfigurationapi.h>
-
 #ifndef _SCROLLER_LIGHT_H_
 #define _SCROLLER_LIGHT_H_
 
@@ -12,9 +10,6 @@ namespace ScrollerController
         virtual ~ScrollerLight();
 
         void setBrightness(int value);
-
-    private:
-        HANDLE hMonitor;
     };
 }
 

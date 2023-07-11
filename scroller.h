@@ -1,6 +1,8 @@
 #include <QtWidgets/QtWidgets>
 #include "scrollercontrolregion.h"
 #include "scrollervolume.h"
+#include "scrollerlight.h"
+
 
 #ifndef _SCROLLER_H_
 #define _SCROLLER_H_
@@ -26,6 +28,7 @@ namespace scroller
         } ui_;
 
         ScrollerController::ScrollerVolume *scroller_colume_;
+        ScrollerController::ScrollerLight* scroller_light_;
     };
 }
 

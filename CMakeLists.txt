@@ -23,5 +23,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
+find_package(Python REQUIRED Development)
+
 add_executable(Scroller ${PROJECT_SOURCES})
-target_link_libraries(Scroller Qt5::Core Qt::Gui Qt::Widgets)
+target_link_libraries(Scroller Qt5::Core Qt::Gui Qt::Widgets Python::Python)

@@ -4,7 +4,7 @@
 
 using namespace scroller;
 
-Scroller::Scroller(QWidget *parent) : QWidget(parent), scroller_colume_(new ScrollerController::ScrollerVolume())
+Scroller::Scroller(QWidget *parent) : QWidget(parent), scroller_colume_(new ScrollerController::ScrollerVolume()), scroller_light_(new ScrollerController::ScrollerLight())
 {
     initUi();
     configController();
@@ -60,4 +60,6 @@ void Scroller::configController()
     };
     ui_.volume_rgn->setWheelCb(volumn_cb);
     ui_.volume_rgn->setRightCb(mute_cb);
+
+    scroller_light_->setBrightness(60);
 }
